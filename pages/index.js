@@ -6,21 +6,14 @@ function Home() {
   const [joke, setJoke] = useState('');
   const [delivery, setDelivery] = useState('');
 
-  const sortJoke = (data) => {
-    const part1 = data.setup;
-    const part2 = data.delivery;
-    return [part1, part2];
-  };
-
   const handleClick = () => {
     if (btn === 'Get a joke' || btn === 'Get another joke') {
       setBtn('Get the punchline');
       document.getElementById('punch-line').hidden = true;
       getJoke()
-        .then(sortJoke)
-        .then((arr) => {
-          setJoke(arr[0]);
-          setDelivery(arr[1]);
+        .then((obj) => {
+          setJoke(obj.setup);
+          setDelivery(obj.delivery);
         });
     } else if (btn === 'Get the punchline') {
       document.getElementById('punch-line').hidden = false;
