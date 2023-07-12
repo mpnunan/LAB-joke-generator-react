@@ -9,7 +9,7 @@ function Home() {
         margin: '0 auto',
       }}
     >
-      <h1>Welcome Home!</h1>
+      <button type="button">Get a joke</button>
     </div>
   );
 }
